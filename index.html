@@ -68,6 +68,11 @@ function filter_empty(name)
 
 function opener(component) {
   component.classList.toggle("open");
+  var mitems = component.parentElement.getElementsByClassName("mitem");
+  var i;
+	for (i = 0; i < mitems.length; i++) {
+	  mitems[i].classList.toggle("open");
+	} 
 }
 </script>
 </head>
@@ -75,23 +80,20 @@ function opener(component) {
 <nav id="main-menu" class="noprint">
 	<a href="https://www.fit.vut.cz/"><img class="FITlogo" src="home_subory/fitnewz.png" alt="FIT"></a>
 	<div class="filler hide-t hide-d"></div>
-	<a id="lang-mobile" class="stab" href="#">&nbsp;EN&nbsp;</a>
 	<div id="hamburger" onclick="opener(this)">
 		<div class="bar1"></div>
 		<div class="bar2"></div>
 		<div class="bar3"></div>
 	</div>
-	<ul>
-		<li class="grow-s"> <!--class="mitembg" nowrap="nowrap"--><a class="stabs" href="#"><span style="font-size:24px;line-height:13px">&nbsp;&#8962;&nbsp;</span></a></li>
-		<li> <!--class="mitem"--><a class="stab" href="#">studia</a></li>
-		<li> <!--class="mitem"--><a class="stab" href="#">pøedmìty</a></li>
-		<li> <!--class="mitem"--><a class="stab" href="#">termíny</a></li>
-		<li> <!--class="mitem hide-m"--><a class="stab" href="#">registrace</a></li>
-		<li> <!--class="mitem hide-m"--><a class="stab" href="#">hesla</a></li>
-		<li> <!--class="mitem hide-m"--><a class="stab" href="#">ostatní</a></li>
-		<li class="grow-s"> <!--class="mitembg hide-m"--><a class="stab" href="#"><span style="font-size:16px;line-height:16px; font-weight: 300">&nbsp;&#9032;&nbsp;</span></a></li>
-		<li class="nogrow"><!--class="mitem"--><a class="stab" href="#">&nbsp;EN&nbsp;</a></li>
-	</ul>
+	<a id="mhome" class="mitem text-icon grow-s selected" href="#"><span style="font-size:24px;line-height:13px">&nbsp;&#8962;&nbsp;</span></a>
+	<a id="mstudy" class="mitem" href="#">studia</a>
+	<a id="mcourses" class="mitem" href="#">pøedmìty</a>
+	<a id="massess" class="mitem" href="#">termíny</a>
+	<a id="mreg" class="mitem" href="#">registrace</a>
+	<a id="maccs" class="mitem" href="#">hesla</a>
+	<a id="mother" class="mitem" href="#">ostatní</a>
+	<a id="mlogout" class="mitem text-icon grow-s" href="#"><span style="font-size:16px;line-height:16px; font-weight: 300">&nbsp;&#9032;&nbsp;</span></a>
+	<a id="mlang" class="mitem nogrow" href="#">&nbsp;EN&nbsp;</a>
 </nav>
 <table width="100%" cellpadding="4" border="0">
 <tbody><tr valign="top"><td style="width: 90%"><h1>Informaèní systém FIT</h1></td>

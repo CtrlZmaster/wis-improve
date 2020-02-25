@@ -157,34 +157,6 @@ input[type=submit].forminput, input[type=button].forminput {
 form {
         display: inline;
 }
-a.stab {
-        font-size: 1em; /* 13px/13px */
-        font-family: Arial,"DejaVu Sans",sans-serif;
-        color: white;
-        text-decoration: none;
-        display: block;
-        width: 100%;
-        height: 27px;
-        padding-top: 10px;
-}
-a.stab:hover,a.stab:focus {
-        background-color:  #00a9e0;
-}
-a.stabs {
-        font-size: 1em; /* 13px/13px */
-        font-family: Arial,"DejaVu Sans",sans-serif;
-		font-weight: normal;
-        color: #3498db;
-        background-color: white;
-        text-decoration: none;
-        display: block;
-        width: 100%;
-        height: 27px;
-        padding-top: 12px;
-}
-a.stabs:hover,a.stabs:focus {
-        color: #00a9e0;
-}
 ul.sbb li {
 	padding: 8px 0px 2px 0px;
 	list-style: none;
@@ -344,7 +316,35 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
 	background-color: #3498db; 
 	width: 100%;
 	display: flex;
-	
+	justify-content: space-between;
+}
+
+#main-menu .mitem:first-child {
+	border-left: none;
+}
+
+#main-menu .mitem {
+	flex-grow: 1;
+	border-left: 1px solid #fff;
+	font-weight: 700;
+	font-size: 1em; /* 13px/13px */
+	font-family: Arial,"DejaVu Sans",sans-serif;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	display: block;
+	padding-top: 10px;
+}
+#main-menu .mitem:hover, #main-menu .mitem:focus {
+	background-color:  #00a9e0;
+}
+#main-menu .selected {
+	color: #3498db;
+	background-color: white !important;
+}
+
+#main-menu .text-icon {
+	font-weight: normal;
 }
 
 #main-menu .nogrow {
@@ -355,23 +355,8 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
 	flex-grow: .5;
 }
 
-#main-menu ul {
-	display: flex;
+.filler {
 	flex-grow: 1;
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-
-#main-menu li {
-	flex-grow: 1;
-	border-left: 1px solid #fff;
-    text-align: center;
-	font-weight: 700;
-}
-
-#main-menu li:first-child {
-	border-left: none;
 }
 
 /* Animated hamburger icon */
@@ -383,6 +368,10 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
 	border-left: 1px solid #fff;
 }
 
+#hamburger.open {
+	background-color:  #00a9e0;
+}
+
 #hamburger .bar1, .bar2, .bar3 {
 	width: 20px;
 	height: 2px;
@@ -390,26 +379,28 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
 	margin: 3px 0;
 }
 
-#hamburger.open {
-	background-color:  #00a9e0;
+/* Rotate first bar */
+#hamburger.open .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-3px, 3px) ;
+  transform: rotate(-45deg) translate(-3px, 3px) ;
 }
 
-.filler {
-	flex-grow: 1;
+/* Fade out the second bar */
+#hamburger.open .bar2 {
+  opacity: 0;
 }
 
-#lang-mobile {
-	width: 40px;
-	display: none;
-	text-align: center;
+/* Rotate last bar */
+#hamburger.open .bar3 {
+  -webkit-transform: rotate(45deg) translate(-4px, -4px) ;
+  transform: rotate(45deg) translate(-4px, -4px) ;
 }
 
 /* Mobile */
 @media (max-width: 575px) {
    .hide-m { display: none; }
-   .mitem { width: 20%; }
-   .mitembg { width: 15%; }
    #clock { white-space: pre }
+   IMG.FITlogo { order: -10; }
    a.sbtn,a.sbtnr,a.sbtng,a.sbtno {
 	width: 96%;
 	padding: 14px 2% 16px 2%;
@@ -432,17 +423,56 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
    
    #main-menu li:last-child { display:none; } /* Hide desktop language toggle in dropdown */
    
-   #main-menu ul {
+   #main-menu .mitem {
 	  display: none;
 	  width: 100%;
+	  padding-bottom: 10px;
    }
    
-   #hamburger.open + ul {
-	  display: block;
-   }
-
-   #lang-mobile {
+   #main-menu #mlang {
+	  width: auto;
 	  display: initial;
+	  order: 4;
+   }
+   
+   #hamburger {
+	  order: 5;
+   }
+   
+   #main-menu #mhome {
+	   order: 6;
+   }
+   
+   #main-menu #mstudy {
+	   order: 7;
+   }
+      
+   #main-menu #mcourses {
+	   order: 8;
+   }
+   
+   #main-menu #massess {
+	   order: 9;
+   }
+   
+   #main-menu #mreg {
+	   order: 10;
+   }
+   
+   #main-menu #maccs {
+	   order: 11;
+   }
+   
+   #main-menu #mother {
+	   order: 12;
+   }
+   
+   #main-menu #mlogout {
+	   order: 13;
+   }
+   
+   #main-menu .open {
+	  display: block;
    }
 }
 
