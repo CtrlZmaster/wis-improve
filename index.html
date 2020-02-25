@@ -52,7 +52,7 @@ function UpdateClock()
     hr = ClockTm.getHours();
     min = ClockTm.getMinutes();
     sec = ClockTm.getSeconds();
-    ClockElm.innerHTML = day+'. '+ClockMonths[mon]+' '+year+'\n '+(hr<=9?'0':'')+hr+':'+(min<=9?'0':'')+min+':'+(sec<=9?'0':'')+sec; 
+    ClockElm.innerHTML = day+'. '+ClockMonths[mon]+' '+year+'\n '+(hr<=9?'0':'')+hr+':'+(min<=9?'0':'')+min+':'+(sec<=9?'0':'')+sec;
 }
 
 function filter_empty(name)
@@ -72,7 +72,7 @@ function opener(component) {
   var i;
 	for (i = 0; i < mitems.length; i++) {
 	  mitems[i].classList.toggle("open");
-	} 
+	}
 }
 </script>
 </head>
@@ -85,14 +85,14 @@ function opener(component) {
 		<div class="bar2"></div>
 		<div class="bar3"></div>
 	</div>
-	<a id="mhome" class="mitem text-icon grow-s selected" href="#"><span style="font-size:24px;line-height:13px">&nbsp;&#8962;&nbsp;</span></a>
-	<a id="mstudy" class="mitem" href="#">studia</a>
-	<a id="mcourses" class="mitem" href="#">pøedmìty</a>
-	<a id="massess" class="mitem" href="#">termíny</a>
-	<a id="mreg" class="mitem" href="#">registrace</a>
-	<a id="maccs" class="mitem" href="#">hesla</a>
-	<a id="mother" class="mitem" href="#">ostatní</a>
-	<a id="mlogout" class="mitem text-icon grow-s" href="#"><span style="font-size:16px;line-height:16px; font-weight: 300">&nbsp;&#9032;&nbsp;</span></a>
+	<a class="mitem text-icon grow-s selected" href="#"><span style="font-size:24px;line-height:13px">&nbsp;&#8962;&nbsp;</span></a>
+	<a class="mitem" href="#">studia</a>
+	<a class="mitem" href="#">pøedmìty</a>
+	<a class="mitem" href="#">termíny</a>
+	<a class="mitem" href="#">registrace</a>
+	<a class="mitem" href="#">hesla</a>
+	<a class="mitem" href="#">ostatní</a>
+	<a class="mitem text-icon grow-s" href="#"><span style="font-size:16px;line-height:16px; font-weight: 300">&nbsp;&#9032;&nbsp;</span></a>
 	<a id="mlang" class="mitem nogrow" href="#">&nbsp;EN&nbsp;</a>
 </nav>
 <table width="100%" cellpadding="4" border="0">

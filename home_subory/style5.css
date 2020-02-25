@@ -7,9 +7,9 @@ body {
 	text-size-adjust: none;
 }
 
-body,td,th,iframe,.text { 
+body,td,th,iframe,.text {
    	margin: 0px;
-   	font-family: Verdana, Geneva, "DejaVu Sans", Arial, sans-serif; 
+   	font-family: Verdana, Geneva, "DejaVu Sans", Arial, sans-serif;
    	color: black;
    	box-sizing: border-box;
    	line-height: 1.5;
@@ -41,7 +41,7 @@ dl.nomargin,ul.nomargin,ol.nomargin {
 	margin-bottom: 0;
 }
 ul.nomargin,ol.nomargin { padding-left: 1.6em; }
-p,li { 
+p,li {
 	font-size: 1em; /* 13px/13px */
 	/*font-family: inherit; unnecesarry*/
 }
@@ -91,8 +91,8 @@ a.form:link  { color: black }
 a.form:visited  { color: black }
 a.form:active  { color: black }
 a.form:hover  { color: black }
-a:link { color: #003365 } 
-a:visited { color: #003365 } 
+a:link { color: #003365 }
+a:visited { color: #003365 }
 a:active { color: #669999 }	/* dqsort problem */
 address { font-family: Verdana, Geneva, "DejaVu Sans", Arial, sans-serif; font-size: .85em; color: #5f5f5f; } /* 11px/13px */
 input,textarea,select {
@@ -194,16 +194,16 @@ a.sbtng:hover,a.sbtng:focus {
 a.btn,a.btn:visited,a.btn:active {
 	display: inline-block;
 	vertical-align: middle;
-	text-align: center; 
+	text-align: center;
 	cursor: default;
-	padding: 4px 10px; 
-	border: 1px solid #808080; 
+	padding: 4px 10px;
+	border: 1px solid #808080;
 	color: black;
-	background-color: lightgrey; 
+	background-color: lightgrey;
 	text-decoration: none;
 }
 a.btn:hover,a.btn:focus {
-	background-color: #deeefe; 
+	background-color: #deeefe;
 }
 table.tfixed {
 	max-width: 800px;
@@ -264,7 +264,7 @@ table.stbl th a:hover {
 	color: green !important;
 }
 a img { border: 0; }
-img.FITlogo { 
+img.FITlogo {
 	display: block;
 /*	height: 39px; */
 }
@@ -313,7 +313,7 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
 /* New menu */
 /* see flexbox compatibility: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Backwards_Compatibility_of_Flexbox */
 #main-menu {
-	background-color: #3498db; 
+	background-color: #3498db;
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
@@ -410,76 +410,41 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
    table.res { max-width: 100%; }
    table.res > tbody > tr > td, table.res > tbody > tr > th { display: block; }
    table.res > tbody > tr > th { font-size: 1.1em;  /* 14px/13px */ }
-   
+
    /* New menu */
    #main-menu {
 	  justify-content: space-between;
 	  flex-wrap: wrap;
    }
-   
-   #main-menu li {
-	border: none;
-	}
-   
-   #main-menu li:last-child { display:none; } /* Hide desktop language toggle in dropdown */
-   
+
    #main-menu .mitem {
 	  display: none;
 	  width: 100%;
+	  border: none;
 	  padding-bottom: 10px;
    }
-   
+
+   #main-menu a:first-child { order: -11; } /* Forces header logo to the left */
+
+   #main-menu .filler { order: -10; } /* Forces items to group next to the hamburger */
+
+   /* Using order -9 to -1 will move menu items to the left from the hamburger button */
+   /* Default order is 0, so hamburger and other items have zero - they follow the HTML order */
    #main-menu #mlang {
 	  width: auto;
 	  display: initial;
-	  order: 4;
+	  padding-left: 8px;
+	  padding-right: 8px;
+	  order: -1;
    }
-   
-   #hamburger {
-	  order: 5;
-   }
-   
-   #main-menu #mhome {
-	   order: 6;
-   }
-   
-   #main-menu #mstudy {
-	   order: 7;
-   }
-      
-   #main-menu #mcourses {
-	   order: 8;
-   }
-   
-   #main-menu #massess {
-	   order: 9;
-   }
-   
-   #main-menu #mreg {
-	   order: 10;
-   }
-   
-   #main-menu #maccs {
-	   order: 11;
-   }
-   
-   #main-menu #mother {
-	   order: 12;
-   }
-   
-   #main-menu #mlogout {
-	   order: 13;
-   }
-   
-   #main-menu .open {
-	  display: block;
-   }
+
+   #main-menu .open { display: block; }
 }
 
 /* Tablet */
 @media (min-width: 576px) and (max-width: 1023px) {
    .hide-t { display: none; }
-   
+
    /* New menu */
    #hamburger {	display: none; }
 }
@@ -487,7 +452,7 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
 /* Desktop */
 @media (min-width: 1024px) {
    .hide-d { display: none; }
-   
+
    /* New menu */
    #hamburger {	display: none; }
 }
