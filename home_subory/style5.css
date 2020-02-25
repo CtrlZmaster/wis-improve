@@ -1,0 +1,477 @@
+body {
+	font-size: 80%; /* 100% = 16px => 13px/16px This cascades and sets relative font size for all elements (responsive) */
+	/* Chrome Android font resize fix*/
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	text-size-adjust: none;
+}
+
+body,td,th,iframe,.text { 
+   	margin: 0px;
+   	font-family: Verdana, Geneva, "DejaVu Sans", Arial, sans-serif; 
+   	color: black;
+   	box-sizing: border-box;
+   	line-height: 1.5;
+}
+h1,h2,h3,h4,h5,h6 {
+   	font-family: inherit;
+   	font-weight: bold;
+   	margin-bottom : 6px;
+}
+h1 {
+   	font-size: 1.54em; /* 20px/13px */
+   	margin-top: 0;
+}
+h2 {
+   	font-size : 1.25em; /* 16px/13px */
+   	margin-top: 12px;
+}
+h3 {
+   	font-size: 1.1em; /* 14px/13px*/
+   	margin-top: 12px;
+}
+h4 {
+   	font-size: 1em; /* 13px/13px */
+   	margin-bottom: 6px;
+}
+dl.notop,ul.notop,ol.notop { margin-top: 0; }
+dl.nomargin,ul.nomargin,ol.nomargin {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+ul.nomargin,ol.nomargin { padding-left: 1.6em; }
+p,li { 
+	font-size: 1em; /* 13px/13px */
+	/*font-family: inherit; unnecesarry*/
+}
+p { margin-top: 1em; margin-bottom: 1em }
+table { border-collapse: collapse; empty-cells: show; }
+td.dataquery { padding: 2px; }
+th.dataquery {
+	line-height: 150%;
+	font-style: normal;
+	padding: 2px;
+}
+th.dataviewh {
+	font-weight: bold;
+	border: solid 1px #808080;
+	padding: 1px 2px;
+}
+td.dataview0 {
+	background-color: #dfe7cf;
+	border-left: solid 1px #808080;
+	border-right: solid 1px #808080;
+	border-top: none;
+	border-bottom: none;
+	padding: 1px 2px;
+}
+td.dataview1 {
+	background-color: cornsilk;
+	border-left: solid 1px #808080;
+	border-right: solid 1px #808080;
+	border-top: none;
+	border-bottom: none;
+	padding: 1px 2px;
+}
+a.bar:link  { text-decoration: none  }
+a.bar:active,a.bar:focus,a.bar:hover  { text-decoration: underline  }
+a.menu2:link {
+	color: #0063a5;
+	font-weight: bold;
+	text-decoration: none;
+}
+a.menu2:visited { color: #0063a5; }
+a.menu2:hover {
+	color: white;
+	text-decoration: none;
+	background-color: black;
+}
+a.form:link  { color: black }
+a.form:visited  { color: black }
+a.form:active  { color: black }
+a.form:hover  { color: black }
+a:link { color: #003365 } 
+a:visited { color: #003365 } 
+a:active { color: #669999 }	/* dqsort problem */
+address { font-family: Verdana, Geneva, "DejaVu Sans", Arial, sans-serif; font-size: .85em; color: #5f5f5f; } /* 11px/13px */
+input,textarea,select {
+        font-family: Verdana, Geneva, "DejaVu Sans", Arial, sans-serif;
+        font-size: 1em; /* 13px/13px */
+	background-color: #fffff0;
+	border: 1px solid gray;
+	margin: 1px;
+	padding: 1px;
+}
+textarea {      /* IE11 */
+	white-space: pre-wrap;
+}
+textarea.readonly {
+        background: #e0e0e0;
+}
+/* Remove button padding in FF */
+input[type=submit]::-moz-focus-inner, input[type=button]::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+/* restore focus unset by previous rule */
+input[type="button"]:-moz-focusring, input[type="submit"]:-moz-focusring {
+	outline: 1px dotted ButtonText;
+}
+input[type=checkbox], input[type=radio] {
+	box-sizing: border-box;	/* IE 10 */
+}
+input[type=submit], input[type=button] {
+	background-color: lightgrey;
+	padding: 4px;
+}
+input[type=submit].form_sd, input[type=button].form_sd {
+	font-size : .7em; /* 9px/13px */
+	background-color: white;        /* dark desktop fix */
+	color : #505050;
+	border : 1px gray solid;
+	margin: 0;
+	border-radius: 3px;
+}
+input.forminput::-ms-clear {
+	width: 0;
+	height: 0;
+}
+input.forminput,textarea.forminput {
+	background-color: white;
+	color: black;
+	border : 1px gray solid;
+}
+input.readonly {
+	background-color : #e0e0e0;
+}
+select.formselect {
+	background-color: #ffffff;
+	font-size : .9em; /* 12px/13px */
+	border: gray 1px solid;
+}
+input[type=submit].forminput, input[type=button].forminput {
+	background-color: lightgrey;
+	padding: 4px;
+}
+form {
+        display: inline;
+}
+a.stab {
+        font-size: 1em; /* 13px/13px */
+        font-family: Arial,"DejaVu Sans",sans-serif;
+        color: white;
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        height: 27px;
+        padding-top: 10px;
+}
+a.stab:hover,a.stab:focus {
+        background-color:  #00a9e0;
+}
+a.stabs {
+        font-size: 1em; /* 13px/13px */
+        font-family: Arial,"DejaVu Sans",sans-serif;
+		font-weight: normal;
+        color: #3498db;
+        background-color: white;
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        height: 27px;
+        padding-top: 12px;
+}
+a.stabs:hover,a.stabs:focus {
+        color: #00a9e0;
+}
+ul.sbb li {
+	padding: 8px 0px 2px 0px;
+	list-style: none;
+}
+a.sbtn,a.sbtnr,a.sbtng,a.sbtno {
+        font-weight: bolder;
+        font-size: 1.1em;  /* 14px/13px */
+        color: white;
+        border-radius: 4px;
+        margin: 0px;
+        display: block;
+        width: 28em;
+        padding: 14px 20px 16px 20px;
+        text-decoration: none;
+	box-shadow: 0 4px 6px #ccc;
+}
+a.sbtn {
+    background: #3498db;
+}
+a.sbtn + div { margin-top: 5px; }
+a.sbtnr {
+	background: #fa503f;
+}
+a.sbtng {
+	background: #20c57a;
+}
+a.sbtno {
+    background: #3498db;
+	width: 500px;
+}
+a.sbtn:hover,a.sbtn:focus,a.sbtnr:hover,a.sbtnr:focus,a.sbtno:hover,a.sbtno:focus,
+a.sbtng:hover,a.sbtng:focus {
+	color: yellow;
+}
+a.btn,a.btn:visited,a.btn:active {
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center; 
+	cursor: default;
+	padding: 4px 10px; 
+	border: 1px solid #808080; 
+	color: black;
+	background-color: lightgrey; 
+	text-decoration: none;
+}
+a.btn:hover,a.btn:focus {
+	background-color: #deeefe; 
+}
+table.tfixed {
+	max-width: 800px;
+}
+table.tfixed img, .w100 {
+	max-width: 100%;
+}
+table.stbl {
+	border: 1px solid #999;
+}
+table.stbl > tbody > tr > th, table.stbl > thead > tr > th {
+	background-color: #3498db;
+	text-align: left;
+	color: white;
+	border: 1px solid #3498db;
+	padding: 4px;
+}
+table.stbl > tbody > tr > th.center, table.stbl > thead > tr > th.center {
+	text-align: center;
+}
+table.stbl > tbody > tr > th.right, table.stbl > thead > tr > th.right {
+	text-align: right;
+}
+table.stbl > tbody > tr:nth-child(even), table.stbl tr.even {
+	background-color: white;
+}
+table.stbl > tbody > tr:nth-child(odd), table.stbl tr.odd {
+	background-color: #ebebeb;
+}
+table.stbl > tbody > tr > td {
+	padding: 4px;
+}
+table.stbl td.dataview0,table.stbl td.dataview1 {
+	padding: 4px;
+	background-color: inherit;
+}
+table.stbl td.bow {
+	border: 1px solid white;
+	background-color: white;
+}
+table.stbl th a {
+	color: white;
+	text-decoration: none;
+}
+table.stbl th a:hover {
+	text-decoration: underline;
+}
+.center {
+	text-align: center;
+}
+.right {
+	text-align: right;
+}
+.red {
+	color: red !important;
+}
+.green {
+	color: green !important;
+}
+a img { border: 0; }
+img.FITlogo { 
+	display: block;
+/*	height: 39px; */
+}
+.nbody img {
+	width: 100%;
+	border: 0px;
+	max-width: 600px;
+}
+hr {
+	color: #0063a5;
+	border: 0 none;
+	border-top: 1px solid #0063a5;
+	height: 1px;
+}
+@media print {
+/*        IMG.FITlogo { display: none } */
+	select.noprint { display: none }
+	a.noprint { display: none }
+	address.noprint { display: none }
+	input.noprint { display: none }
+	h1.noprint { display: none }
+	p.noprint { display: none }
+	div.noprint { display: none }
+	table.noprint { display: none }
+}
+/* taedit */
+div.tabut { background-image: url(/images/tapal.png); width: 21px; height: 20px; }
+
+.content {
+    padding: 4px;
+    border-bottom: 1px solid #0063a5;
+}
+.table-holder {
+    overflow-x: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    width: 100%;
+    padding: 4px;
+    margin: 0px -4px;
+}
+.table-holder > table {
+    position: relative;
+}
+table.res { max-width: 800px; }
+table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
+
+/* New menu */
+/* see flexbox compatibility: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Backwards_Compatibility_of_Flexbox */
+#main-menu {
+	background-color: #3498db; 
+	width: 100%;
+	display: flex;
+	
+}
+
+#main-menu .nogrow {
+	flex-grow: 0;
+}
+
+#main-menu .grow-s {
+	flex-grow: .5;
+}
+
+#main-menu ul {
+	display: flex;
+	flex-grow: 1;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+#main-menu li {
+	flex-grow: 1;
+	border-left: 1px solid #fff;
+    text-align: center;
+	font-weight: 700;
+}
+
+#main-menu li:first-child {
+	border-left: none;
+}
+
+/* Animated hamburger icon */
+/* Taken from: https://www.w3schools.com/howto/howto_css_menu_icon.asp - consider using prefixes for better comaptibility*/
+#hamburger {
+  padding: 10px;
+  flex-grow: 0;
+  cursor: pointer;
+  border-left: 1px solid #fff;
+}
+
+#hamburger .bar1, .bar2, .bar3 {
+  width: 20px;
+  height: 2px;
+  background-color: #fff;
+  margin: 3px 0;
+  transition: 0.4s;
+}
+
+/* Rotate first bar */
+#hamburger.open .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-3px, 3px) ;
+  transform: rotate(-45deg) translate(-3px, 3px) ;
+}
+
+/* Fade out the second bar */
+#hamburger.open .bar2 {
+  opacity: 0;
+}
+
+/* Rotate last bar */
+#hamburger.open .bar3 {
+  -webkit-transform: rotate(45deg) translate(-4px, -4px) ;
+  transform: rotate(45deg) translate(-4px, -4px) ;
+}
+
+.filler {
+	flex-grow: 1;
+}
+
+#lang-mobile {
+	width: 40px;
+	display: none;
+	text-align: center;
+}
+
+/* Mobile */
+@media (max-width: 575px) {
+   .hide-m { display: none; }
+   .mitem { width: 20%; }
+   .mitembg { width: 15%; }
+   #clock { white-space: pre }
+   a.sbtn,a.sbtnr,a.sbtng,a.sbtno {
+	width: 96%;
+	padding: 14px 2% 16px 2%;
+	margin: 0 auto;
+   }
+   ul.sbb { padding-left: 0; }
+   table.res { max-width: 100%; }
+   table.res > tbody > tr > td, table.res > tbody > tr > th { display: block; }
+   table.res > tbody > tr > th { font-size: 1.1em;  /* 14px/13px */ }
+   
+   /* New menu */
+   #main-menu {
+	  justify-content: space-between;
+	  flex-wrap: wrap;
+   }
+   
+   #main-menu li {
+	border: none;
+	}
+   
+   #main-menu li:last-child { display:none; } /* Hide desktop language toggle in dropdown */
+   
+   #main-menu ul {
+	  display: none;
+	  width: 100%;
+   }
+   
+   #hamburger.open + ul {
+	  display: block;
+   }
+
+   #lang-mobile {
+	  display: initial;
+   }
+}
+
+/* Tablet */
+@media (min-width: 576px) and (max-width: 1023px) {
+   .hide-t { display: none; }
+   
+   /* New menu */
+   #hamburger {	display: none; }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+   .hide-d { display: none; }
+   
+   /* New menu */
+   #hamburger {	display: none; }
+}
