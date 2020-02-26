@@ -315,16 +315,18 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
 #main-menu {
 	background-color: #3498db;
 	width: 100%;
-	display: flex;
-	justify-content: space-between;
 }
 
-#main-menu .mitem:first-child {
-	border-left: none;
+#main-menu section {
+	width: calc(100% - 97px);
+	display: inline-table;
+	float: right;
 }
 
 #main-menu .mitem {
-	flex-grow: 1;
+	width: 14.28%;
+	height: 29px;
+	display: table-cell;
 	border-left: 1px solid #fff;
 	font-weight: 700;
 	font-size: 1em; /* 13px/13px */
@@ -332,8 +334,12 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
 	color: white;
 	text-decoration: none;
 	text-align: center;
-	display: block;
 	padding-top: 10px;
+}
+
+#main-menu a:first-child { /* Logo wrapper */
+	display: table-cell;
+	line-height: initial;
 }
 #main-menu .mitem:hover, #main-menu .mitem:focus {
 	background-color:  #00a9e0;
@@ -347,53 +353,14 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
 	font-weight: normal;
 }
 
-#main-menu .nogrow {
-	flex-grow: 0;
+#main-menu .mitem-s {
+	width: 7.14%;
 }
 
-#main-menu .grow-s {
-	flex-grow: .5;
-}
-
-.filler {
-	flex-grow: 1;
-}
-
-/* Animated hamburger icon */
-/* Taken from: https://www.w3schools.com/howto/howto_css_menu_icon.asp - consider using prefixes for better comaptibility*/
-#hamburger {
-	padding: 10px;
-	flex-grow: 0;
-	cursor: pointer;
-	border-left: 1px solid #fff;
-}
-
-#hamburger.open {
-	background-color:  #00a9e0;
-}
-
-#hamburger .bar1, .bar2, .bar3 {
-	width: 20px;
-	height: 2px;
-	background-color: #fff;
-	margin: 3px 0;
-}
-
-/* Rotate first bar */
-#hamburger.open .bar1 {
-  -webkit-transform: rotate(-45deg) translate(-3px, 3px) ;
-  transform: rotate(-45deg) translate(-3px, 3px) ;
-}
-
-/* Fade out the second bar */
-#hamburger.open .bar2 {
-  opacity: 0;
-}
-
-/* Rotate last bar */
-#hamburger.open .bar3 {
-  -webkit-transform: rotate(45deg) translate(-4px, -4px) ;
-  transform: rotate(45deg) translate(-4px, -4px) ;
+#main-menu .mitem-orig {
+	width: auto;
+	padding-left: 8px;
+	padding-right: 8px;
 }
 
 /* Mobile */
@@ -422,6 +389,13 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
 	  width: 100%;
 	  border: none;
 	  padding-bottom: 10px;
+   }
+
+   #main-menu .mitem-s {
+   }
+
+   #main-menu -mitem-orig {
+	   width: auto;
    }
 
    #main-menu a:first-child { order: -11; } /* Forces header logo to the left */
