@@ -349,6 +349,13 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
 
 #main-menu .text-icon {
 	font-weight: normal;
+	-webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
 }
 
 #main-menu .mitem-s {
@@ -361,15 +368,16 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
 	padding-right: 8px;
 }
 
+
 /* Mobile */
 @media (max-width: 575px) {
    .hide-m { display: none; }
    #clock { white-space: pre }
    IMG.FITlogo { order: -10; }
    a.sbtn,a.sbtnr,a.sbtng,a.sbtno {
-	width: 96%;
-	padding: 14px 2% 16px 2%;
-	margin: 0 auto;
+		width: 96%;
+		padding: 14px 2% 16px 2%;
+		margin: 0 auto;
    }
    ul.sbb { padding-left: 0; }
    table.res { max-width: 100%; }
@@ -378,27 +386,62 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
 
    /* New menu */
    #main-menu {
-	  justify-content: space-between;
-	  flex-wrap: wrap;
+		display: flex;
+		flex-wrap: wrap;
+		height: 78px;
+		overflow: hidden;
    }
 
    #main-menu .mitem {
-	  display: none;
-	  width: 100%;
-	  border: none;
-	  padding-bottom: 10px;
+		padding: 10px 20px 0 20px;
+		width: auto;
+		height: 29px;
+		padding-top: 10px;
    }
 
    #main-menu .mitem-s {
+		 width: 40px;
+		 padding: 10px 0 0 0;
    }
 
-   #main-menu -mitem-orig {
-	   width: auto;
+   #main-menu .mitem-orig {
+	   padding: 10px 0 0 0;
    }
 
-   #main-menu a:first-child { order: -11; } /* Forces header logo to the left */
+	 #main-menu .mmover {
+		 position: absolute;
+		 z-index: 1;
+		 background-color: #3498db;
+	 }
 
-   #main-menu .filler { order: -10; } /* Forces items to group next to the hamburger */
+	 #main-menu #mleft {
+		 top: 39px;
+		 left: 0;
+	 }
+
+	 #main-menu #mright {
+		 top: 39px;
+		 right: 0;
+	 }
+
+	 #main-menu .msliding {
+		 position: absolute;
+		 top: 39px;
+		 z-index: 0;
+	 }
+
+	 #main-menu .filler {
+		 order: -9; /* Forces items to group next to the hamburger */
+		 flex-grow: 1;
+	 }
+
+   #main-menu #FIThome { order: -11; } /* Forces header logo to the left */
+
+   #main-menu #mhome { order: -10; }
+
+	 #main-menu #mlogout { order: -9; }
+
+	 #main-menu #menu-break {	order: -1; width: 100%; }
 
    /* Using order -9 to -1 will move menu items to the left from the hamburger button */
    /* Default order is 0, so hamburger and other items have zero - they follow the HTML order */
@@ -407,10 +450,9 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
 	  display: initial;
 	  padding-left: 8px;
 	  padding-right: 8px;
-	  order: -1;
    }
 
-   #main-menu .open { display: block; }
+   #main-menu #menu { display: block; }
 }
 
 /* Tablet */
@@ -418,7 +460,7 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
    .hide-t { display: none; }
 
    /* New menu */
-   #hamburger {	display: none; }
+   #main-menu .mslide {	display: none; }
 }
 
 /* Desktop */
@@ -426,5 +468,5 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
    .hide-d { display: none; }
 
    /* New menu */
-   #hamburger {	display: none; }
+   #main-menu .mslide {	display: none; }
 }

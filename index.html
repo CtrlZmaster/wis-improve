@@ -12,7 +12,6 @@ var ClockMonths = new Array("ledna", "února", "bøezna", "dubna", "kvìtna", "èerv
 var ClockElm;
 var ClockDiff=0;
 document.cookie = "res=w:"+screen.width+",h:"+screen.height+",r:"+window.devicePixelRatio+",p:"+navigator.platform+",tp:"+navigator.maxTouchPoints+"; path=/";
-
 function ClockInit()
 {
     if (!document.getElementById) return;
@@ -74,20 +73,65 @@ function opener(component) {
 	  mitems[i].classList.toggle("open");
 	}
 }
+
+var MenuStartIdx=0;
+var slidables = document.getElementsByClassName("msliding");
+var lastbtnright = 577; //
+function menu_left() {
+  if(MenuStartIdx > 0) {
+    MenuStartIdx--;
+  }
+  // Change position only if there is more buttons to display
+  if(true) {
+    position_menu_buttons(MenuStartIdx);
+  }
+}
+
+function menu_right() {
+
+  if(MenuStartIdx < slidables.length) {
+    MenuStartIdx++;
+  }
+  // Change position only if there is more buttons to display
+  if(lastbtnright > window.innerWidth) {
+    position_menu_buttons(MenuStartIdx);
+  }
+}
+
+//TODO: Convert from position to translate
+function position_menu_buttons_(first_button_idx) {
+  var offset = -40; // first we go left from offset
+  var i;
+  for (i = first_button_idx - 1; i >= 0; i--) {
+	  slidables[i].style.left = offset + "px";
+    offset -= slidables[i].offsetWidth;
+	}
+  offset = 40;
+	for (i = first_button_idx; i < slidables.length; i++) {
+	  slidables[i].style.left = offset + "px";
+    offset += slidables[i].offsetWidth;
+	}
+  lastbtnright = slidables[slidables.length-1].getBoundingClientRect().right - 40;
+}
+//window.onload = position_menu_buttons(0);
 </script>
 </head>
 <body onload="ClockInit()">
 <nav id="main-menu" role="navigation" class="noprint">
     <a id="FIThome" href="https://www.fit.vut.cz/"><img class="FITlogo" src="home_subory/fitnewz.png" alt="FIT"></a>
-		<a id="mhome" class="mitem text-icon mitem-s selected" href="#"><span style="font-size:24px;line-height:13px">&nbsp;&#8962;&nbsp;</span></a>
-		<a class="mitem" href="#">studia</a>
-		<a class="mitem" href="#">pøedmìty</a>
-		<a class="mitem" href="#">termíny</a>
-		<a class="mitem" href="#">registrace</a>
-		<a class="mitem" href="#">hesla</a>
-		<a class="mitem" href="#">ostatní</a>
-		<a id="mlogout" class="mitem text-icon mitem-s" href="#"><span style="font-size:16px;line-height:16px; font-weight: 300">&nbsp;&#9032;&nbsp;</span></a>
-		<a id="mlang" class="mitem mitem-orig" href="#">&nbsp;EN&nbsp;</a>
+		<a id="mhome" class="mitem text-icon mitem-s" href="#"><span style="font-size:24px;line-height:13px">&nbsp;&#8962;&nbsp;</span></a>
+    <div class="filler"></div>
+    <div id="menu-break" class="hide-d hide-t"></div>
+    <a id="mleft" class="mitem text-icon mitem-s mmover hide-d hide-t" onclick="menu_left()">&nbsp;&lt;&nbsp;</a>
+    <a class="mitem msliding" href="#">studia</a>
+  	<a class="mitem msliding" href="#">pøedmìty</a>
+  	<a class="mitem msliding" href="#">termíny</a>
+  	<a class="mitem msliding" href="#">registrace</a>
+  	<a class="mitem msliding" href="#">hesla</a>
+  	<a class="mitem msliding" href="#">ostatní</a>
+  	<a id="mlogout" class="mitem text-icon mitem-s" href="#"><span style="font-size:16px;line-height:16px; font-weight: 300">&nbsp;&#9032;&nbsp;</span></a>
+  	<a id="mlang" class="mitem mitem-orig msliding" href="#">&nbsp;EN&nbsp;</a>
+    <a id="mright" class="mitem text-icon mitem-s mmover hide-d hide-t" onclick="menu_right()">&nbsp;&gt;&nbsp;</a>
 </nav>
 <table width="100%" cellpadding="4" border="0">
 <tbody><tr valign="top"><td style="width: 90%"><h1>Informaèní systém FIT</h1></td>
