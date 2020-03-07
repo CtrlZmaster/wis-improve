@@ -402,7 +402,7 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
    }
 
    #main-menu .mitem-s {
-		 width: 40px;
+		 width: 38px;
 		 padding: 10px 0 0 0;
    }
 
@@ -441,16 +441,19 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
 		 height: 39px;
 	 }
 
-   #main-menu #FIThome { order: -11; } /* Forces header logo to the left */
+   #main-menu #FIThome { order: -11; height: 39px; } /* Forces header logo to the left */
 
    #main-menu #mhome { order: -10; border-left: 1px solid #fff;}
 
 	 #main-menu #mlogout { order: -9; border-right: none; border-left: 1px solid #fff; }
 
 	 #main-menu #menu-break {
-		 order: -1;
+		 position: absolute;
+		 top: 39px;
 		 width: 100%;
+		 height: 0;
 		 border-bottom: 1px solid #fff;
+		 z-index: 2;
 	 }
 
    /* Using order -9 to -1 will move menu items to the left from the hamburger button */

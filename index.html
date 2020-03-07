@@ -74,27 +74,37 @@ function opener(component) {
 	}
 }
 
-var first_btn_idx=0;
 var slidables = document.getElementsByClassName("msliding");
-var last_btn_right = 577; //
+const BTN_SIZE = 38;
+const BTN_PAD = 20;
 function menu_left() {
   // Change position only if there is more buttons to display
-  if(first_btn_idx > 0) {
-    menu_move(function(a,b) {return a + b;});
-    first_btn_idx--;
+  var transform_val;
+  for (i = slidables.length - 1; i >= 0; i--) {
+    transform_val = slidables[i].getBoundingClientRect().left - BTN_SIZE + 1;
+    if(transform_val < -BTN_PAD) { break; } // Might not break on last
+    // 10 = padding size - move to next button if last is readable
+  }
+  if(transform_val < -BTN_PAD) {
+    menu_move(function(old_offset, move_by=transform_val) {return old_offset + Math.abs(move_by);});
   }
 }
 
 function menu_right() {
   // Change position only if there is more buttons to display
-  if(first_btn_idx < slidables.length && last_btn_right > window.innerWidth - 40) {
-    menu_move(function(a, b) {return a - b;});
-    first_btn_idx++;
+  var transform_val;
+  for (i = 0; i < slidables.length; i++) {
+    transform_val = slidables[i].getBoundingClientRect().right - window.innerWidth + BTN_SIZE;
+    if(transform_val > BTN_PAD) { break; } // Might not break on last, 1px for border
+    // 10 = padding size - move to next button if last is readable
+  }
+  if(transform_val > BTN_PAD) {
+    menu_move(function(old_offset, move_by=transform_val) {return old_offset - move_by;});
   }
 }
 
 function initial_menu_render() {
-  offset = 40;
+  offset = BTN_SIZE;
 	for (i = 0; i < slidables.length; i++) {
 	  slidables[i].style.left = offset + "px";
     slidables[i].style.transform = "translateX(0px)";
@@ -103,16 +113,30 @@ function initial_menu_render() {
 }
 
 function menu_move(offset_manip) {
-  var btn_size = slidables[first_btn_idx].offsetWidth;
-  var old_offset = parseInt(slidables[first_btn_idx].style.transform.substr(11));
+  var old_offset = parseInt(slidables[0].style.transform.substr(11));
   var i;
 	for (i = 0; i < slidables.length; i++) {
     slidables[i].style.transform =
       "translateX(" +
-      offset_manip(old_offset, btn_size) +
+      offset_manip(old_offset) +
       "px)";
 	}
-  last_btn_right = slidables[slidables.length-1].getBoundingClientRect().right;
+}
+
+// Fixes menu when resizing
+function menu_fixer() {
+  // Number needs to be consistent with mobile breakpoint
+  if(window.innerWidth > 576) {
+    // Clears values set by JS for mobile menu
+    for (i = 0; i < slidables.length; i++) {
+  	  slidables[i].style.removeProperty("left");
+      slidables[i].style.removeProperty("transform");
+      offset += slidables[i].offsetWidth;
+  	}
+  }
+  else {
+    initial_menu_render();
+  }
 }
 </script>
 </head>
@@ -147,6 +171,7 @@ Pøedmìty, rozvrhy, potvrzování výsledkù studia.</div></li><li><a tabindex="7" cl
 
 </body>
 <script>
-  initial_menu_render();
+  window.addEventListener('resize', menu_fixer);
+  menu_fixer(); // Will run menu render after loading on mobile
 </script>
 </html>
