@@ -77,19 +77,17 @@ function opener(component) {
 </script>
 </head>
 <body onload="ClockInit()">
-<nav id="main-menu" class="noprint">
-	<a href="https://www.fit.vut.cz/"><img class="FITlogo" src="home_subory/fitnewz.png" alt="FIT"></a>
-	<section>
-		<a class="mitem text-icon mitem-s selected" href="#"><span style="font-size:24px;line-height:13px">&nbsp;&#8962;&nbsp;</span></a>
+<nav id="main-menu" role="navigation" class="noprint">
+    <a id="FIThome" href="https://www.fit.vut.cz/"><img class="FITlogo" src="home_subory/fitnewz.png" alt="FIT"></a>
+		<a id="mhome" class="mitem text-icon mitem-s selected" href="#"><span style="font-size:24px;line-height:13px">&nbsp;&#8962;&nbsp;</span></a>
 		<a class="mitem" href="#">studia</a>
 		<a class="mitem" href="#">pøedmìty</a>
 		<a class="mitem" href="#">termíny</a>
 		<a class="mitem" href="#">registrace</a>
 		<a class="mitem" href="#">hesla</a>
 		<a class="mitem" href="#">ostatní</a>
-		<a class="mitem text-icon mitem-s" href="#"><span style="font-size:16px;line-height:16px; font-weight: 300">&nbsp;&#9032;&nbsp;</span></a>
+		<a id="mlogout" class="mitem text-icon mitem-s" href="#"><span style="font-size:16px;line-height:16px; font-weight: 300">&nbsp;&#9032;&nbsp;</span></a>
 		<a id="mlang" class="mitem mitem-orig" href="#">&nbsp;EN&nbsp;</a>
-	</section>
 </nav>
 <table width="100%" cellpadding="4" border="0">
 <tbody><tr valign="top"><td style="width: 90%"><h1>Informaèní systém FIT</h1></td>

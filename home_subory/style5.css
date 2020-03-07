@@ -315,17 +315,15 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
 #main-menu {
 	background-color: #3498db;
 	width: 100%;
+	display: table-row;
 }
 
 #main-menu section {
-	width: calc(100% - 97px);
-	display: inline-table;
-	float: right;
+	display: table-row;
 }
 
 #main-menu .mitem {
 	width: 14.28%;
-	height: 29px;
 	display: table-cell;
 	border-left: 1px solid #fff;
 	font-weight: 700;
@@ -334,12 +332,12 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
 	color: white;
 	text-decoration: none;
 	text-align: center;
-	padding-top: 10px;
+	vertical-align: middle;
 }
 
-#main-menu a:first-child { /* Logo wrapper */
-	display: table-cell;
-	line-height: initial;
+#main-menu #FIThome { /* Logo wrapper */
+	display: table-header;
+	line-height: 1;
 }
 #main-menu .mitem:hover, #main-menu .mitem:focus {
 	background-color:  #00a9e0;
