@@ -74,46 +74,46 @@ function opener(component) {
 	}
 }
 
-var MenuStartIdx=0;
+var first_btn_idx=0;
 var slidables = document.getElementsByClassName("msliding");
-var lastbtnright = 577; //
+var last_btn_right = 577; //
 function menu_left() {
-  if(MenuStartIdx > 0) {
-    MenuStartIdx--;
-  }
   // Change position only if there is more buttons to display
-  if(true) {
-    position_menu_buttons(MenuStartIdx);
+  if(first_btn_idx > 0) {
+    menu_move(function(a,b) {return a + b;});
+    first_btn_idx--;
   }
 }
 
 function menu_right() {
-
-  if(MenuStartIdx < slidables.length) {
-    MenuStartIdx++;
-  }
   // Change position only if there is more buttons to display
-  if(lastbtnright > window.innerWidth) {
-    position_menu_buttons(MenuStartIdx);
+  if(first_btn_idx < slidables.length && last_btn_right > window.innerWidth - 40) {
+    menu_move(function(a, b) {return a - b;});
+    first_btn_idx++;
   }
 }
 
-//TODO: Convert from position to translate
-function position_menu_buttons_(first_button_idx) {
-  var offset = -40; // first we go left from offset
-  var i;
-  for (i = first_button_idx - 1; i >= 0; i--) {
-	  slidables[i].style.left = offset + "px";
-    offset -= slidables[i].offsetWidth;
-	}
+function initial_menu_render() {
   offset = 40;
-	for (i = first_button_idx; i < slidables.length; i++) {
+	for (i = 0; i < slidables.length; i++) {
 	  slidables[i].style.left = offset + "px";
+    slidables[i].style.transform = "translateX(0px)";
     offset += slidables[i].offsetWidth;
 	}
-  lastbtnright = slidables[slidables.length-1].getBoundingClientRect().right - 40;
 }
-//window.onload = position_menu_buttons(0);
+
+function menu_move(offset_manip) {
+  var btn_size = slidables[first_btn_idx].offsetWidth;
+  var old_offset = parseInt(slidables[first_btn_idx].style.transform.substr(11));
+  var i;
+	for (i = 0; i < slidables.length; i++) {
+    slidables[i].style.transform =
+      "translateX(" +
+      offset_manip(old_offset, btn_size) +
+      "px)";
+	}
+  last_btn_right = slidables[slidables.length-1].getBoundingClientRect().right;
+}
 </script>
 </head>
 <body onload="ClockInit()">
@@ -145,4 +145,8 @@ Pøedmìty, rozvrhy, potvrzování výsledkù studia.</div></li><li><a tabindex="7" cl
 <address>&#169;Fakulta informaèních technologií VUT, Bo¾etìchova 2, 612 00 Brno<br>Pøipomínky zasílejte na adresu <a href="mailto:lampa@fit.vut.cz">lampa@fit.vut.cz</a></address></div>
 
 
-</body></html>
+</body>
+<script>
+  initial_menu_render();
+</script>
+</html>

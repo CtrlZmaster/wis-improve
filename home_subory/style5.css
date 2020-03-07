@@ -388,7 +388,7 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
    #main-menu {
 		display: flex;
 		flex-wrap: wrap;
-		height: 78px;
+		height: 79px;
 		overflow: hidden;
    }
 
@@ -397,6 +397,8 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
 		width: auto;
 		height: 29px;
 		padding-top: 10px;
+		border-left: none;
+		border-right: 1px solid #fff;
    }
 
    #main-menu .mitem-s {
@@ -422,26 +424,34 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
 	 #main-menu #mright {
 		 top: 39px;
 		 right: 0;
+		 border-right: none;
+		 border-left: 1px solid #fff;
 	 }
 
 	 #main-menu .msliding {
 		 position: absolute;
 		 top: 39px;
 		 z-index: 0;
+		 transition: transform .5s ease-out;
 	 }
 
 	 #main-menu .filler {
 		 order: -9; /* Forces items to group next to the hamburger */
 		 flex-grow: 1;
+		 height: 39px;
 	 }
 
    #main-menu #FIThome { order: -11; } /* Forces header logo to the left */
 
-   #main-menu #mhome { order: -10; }
+   #main-menu #mhome { order: -10; border-left: 1px solid #fff;}
 
-	 #main-menu #mlogout { order: -9; }
+	 #main-menu #mlogout { order: -9; border-right: none; border-left: 1px solid #fff; }
 
-	 #main-menu #menu-break {	order: -1; width: 100%; }
+	 #main-menu #menu-break {
+		 order: -1;
+		 width: 100%;
+		 border-bottom: 1px solid #fff;
+	 }
 
    /* Using order -9 to -1 will move menu items to the left from the hamburger button */
    /* Default order is 0, so hamburger and other items have zero - they follow the HTML order */
