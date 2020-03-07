@@ -64,80 +64,6 @@ function filter_empty(name)
     }
     return true;
 }
-
-function opener(component) {
-  component.classList.toggle("open");
-  var mitems = component.parentElement.getElementsByClassName("mitem");
-  var i;
-	for (i = 0; i < mitems.length; i++) {
-	  mitems[i].classList.toggle("open");
-	}
-}
-
-var slidables = document.getElementsByClassName("msliding");
-const BTN_SIZE = 38;
-const BTN_PAD = 20;
-function menu_left() {
-  // Change position only if there is more buttons to display
-  var transform_val;
-  for (i = slidables.length - 1; i >= 0; i--) {
-    transform_val = slidables[i].getBoundingClientRect().left - BTN_SIZE + 1;
-    if(transform_val < -BTN_PAD) { break; } // Might not break on last
-    // 10 = padding size - move to next button if last is readable
-  }
-  if(transform_val < -BTN_PAD) {
-    menu_move(function(old_offset, move_by=transform_val) {return old_offset + Math.abs(move_by);});
-  }
-}
-
-function menu_right() {
-  // Change position only if there is more buttons to display
-  var transform_val;
-  for (i = 0; i < slidables.length; i++) {
-    transform_val = slidables[i].getBoundingClientRect().right - window.innerWidth + BTN_SIZE;
-    if(transform_val > BTN_PAD) { break; } // Might not break on last, 1px for border
-    // 10 = padding size - move to next button if last is readable
-  }
-  if(transform_val > BTN_PAD) {
-    menu_move(function(old_offset, move_by=transform_val) {return old_offset - move_by;});
-  }
-}
-
-function initial_menu_render() {
-  offset = BTN_SIZE;
-	for (i = 0; i < slidables.length; i++) {
-	  slidables[i].style.left = offset + "px";
-    slidables[i].style.transform = "translateX(0px)";
-    offset += slidables[i].offsetWidth;
-	}
-}
-
-function menu_move(offset_manip) {
-  var old_offset = parseInt(slidables[0].style.transform.substr(11));
-  var i;
-	for (i = 0; i < slidables.length; i++) {
-    slidables[i].style.transform =
-      "translateX(" +
-      offset_manip(old_offset) +
-      "px)";
-	}
-}
-
-// Fixes menu when resizing
-function menu_fixer() {
-  // Number needs to be consistent with mobile breakpoint
-  if(window.innerWidth > 576) {
-    // Clears values set by JS for mobile menu
-    for (i = 0; i < slidables.length; i++) {
-  	  slidables[i].style.removeProperty("left");
-      slidables[i].style.removeProperty("transform");
-      offset += slidables[i].offsetWidth;
-  	}
-  }
-  else {
-    initial_menu_render();
-  }
-}
 </script>
 </head>
 <body onload="ClockInit()">
@@ -154,7 +80,7 @@ function menu_fixer() {
   	<a class="mitem msliding" href="#">hesla</a>
   	<a class="mitem msliding" href="#">ostatní</a>
   	<a id="mlogout" class="mitem text-icon mitem-s" href="#"><span>&nbsp;&#9032;&nbsp;</span></a>
-  	<a id="mlang" class="mitem mitem-orig msliding" href="#">&nbsp;EN&nbsp;</a>
+  	<a id="mlang" class="mitem mitem-orig" href="#">&nbsp;EN&nbsp;</a>
     <a id="mright" class="mitem text-icon mitem-s mmover hide-d hide-t" onclick="menu_right()">&nbsp;&gt;&nbsp;</a>
 </nav>
 <table width="100%" cellpadding="4" border="0">
@@ -171,7 +97,75 @@ Pøedmìty, rozvrhy, potvrzování výsledkù studia.</div></li><li><a tabindex="7" cl
 
 </body>
 <script>
-  window.addEventListener('resize', menu_fixer);
-  menu_fixer(); // Will run menu render after loading on mobile
+// New menu scripts
+const BTN_SIZE = 38;
+const BTN_PAD = 20;
+var slidables = document.getElementsByClassName("msliding");
+
+// Triggered when clicking left arrow
+function menu_left() {
+  var transform_val;
+  for (i = slidables.length - 1; i >= 0; i--) {
+    transform_val = slidables[i].getBoundingClientRect().left - BTN_SIZE + 1;
+    if(transform_val < -BTN_PAD) { break; } // Might not break on last
+    // 10 = padding size - move to next button if last is readable
+  }
+  if(transform_val < -BTN_PAD) {
+    menu_move(function(old_offset, move_by=transform_val) {return old_offset + Math.abs(move_by);});
+  }
+}
+
+// Triggered when clicking right arrow
+function menu_right() {
+  var transform_val;
+  for (i = 0; i < slidables.length; i++) {
+    transform_val = slidables[i].getBoundingClientRect().right - window.innerWidth + BTN_SIZE;
+    if(transform_val > BTN_PAD) { break; } // Might not break on last, 1px for border
+    // 10 = padding size - move to next button if last is readable
+  }
+  if(transform_val > BTN_PAD) {
+    menu_move(function(old_offset, move_by=transform_val) {return old_offset - move_by;});
+  }
+}
+
+function initial_menu_render() {
+  offset = BTN_SIZE;
+  for (i = 0; i < slidables.length; i++) {
+    slidables[i].style.left = offset + "px";
+    slidables[i].style.transform = "translateX(0px)";
+    offset += slidables[i].offsetWidth;
+  }
+}
+
+function menu_move(offset_manip) {
+  var old_offset = parseInt(slidables[0].style.transform.substr(11));
+  var i;
+  for (i = 0; i < slidables.length; i++) {
+    slidables[i].style.transform =
+      "translateX(" +
+      offset_manip(old_offset) +
+      "px)";
+  }
+}
+
+// Fixes menu when resizing
+function menu_fixer() {
+  // Number needs to be consistent with mobile breakpoint
+  if(window.innerWidth > 576) {
+    // Clears values set by JS for mobile menu
+    for (i = 0; i < slidables.length; i++) {
+      slidables[i].style.removeProperty("left");
+      slidables[i].style.removeProperty("transform");
+      offset += slidables[i].offsetWidth;
+    }
+  }
+  else {
+    initial_menu_render();
+  }
+}
+
+window.addEventListener('resize', menu_fixer);
+menu_fixer(); // Will run menu render after loading on mobile
+
 </script>
 </html>

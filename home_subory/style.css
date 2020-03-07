@@ -464,22 +464,6 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
 		 transition: transform .2s ease-out;
 	 }
 
-	 #main-menu .filler {
-		 display: initial;
-		 order: -9; /* Forces items to group next to the hamburger */
-		 flex-grow: 1;
-		 height: 39px;
-	 }
-
-   #main-menu #FIThome { order: -11; height: 39px; } /* Forces header logo to the left */
-
-   #main-menu #mhome {
-		 order: -10;
-		 border-left: 1px solid #fff;
-	 }
-
-	 #main-menu #mlogout { order: -9; border-right: none; border-left: 1px solid #fff; }
-
 	 #main-menu #menu-break {
 		 position: absolute;
 		 top: 39px;
@@ -490,23 +474,48 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
 		 z-index: 2;
 	 }
 
-   /* Using order -9 to -1 will move menu items to the left from the hamburger button */
-   /* Default order is 0, so hamburger and other items have zero - they follow the HTML order */
+   #main-menu #FIThome {
+		 order: -13; /* Forces header logo to the left */
+		 height: 39px;
+	}
+
+   #main-menu #mhome {
+		 order: -12;
+		 border-left: 1px solid #fff;
+	 }
+
+	 #main-menu .filler {
+		 display: initial;
+		 order: -11; /* Forces items to group to the right border */
+		 flex-grow: 1;
+		 height: 39px;
+	 }
+
+   /* Using order -10 to -1 will move menu items to the right window border */
    #main-menu #mlang {
 	  width: auto;
+		order: -10;
 	  display: initial;
 	  padding-left: 8px;
 	  padding-right: 8px;
+		border-left: 1px solid #fff;
    }
+
+ 	 #main-menu #mlogout {
+		order: -9;
+		border-right: none;
+	}
 
 	 #main-menu #mhome span {
 	 	position: relative;
-	 	top: -.2em;
+	 	top: -.3em;
 	 	font-size: 1.5em;
 	 }
 
 	 #main-menu #mlogout span {
-	 	font-size: 1.2em;
+		position: relative;
+ 	 	top: -.1em;
+		font-size: 1.2em;
 	 	font-weight: 300;
 	 }
 }
