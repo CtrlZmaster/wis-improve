@@ -383,14 +383,14 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
 
    #main-menu .mitem {
 		display: initial;
-		height: 48px;
+		height: 40px;
 		flex-basis: 20%;
 		flex-grow: 1;
-		padding-top: 15px;
+		padding-top: 11px;
+		border-bottom: 1px solid #fff;
 		box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-		border: none;
    }
 
    #main-menu .mitem-s, #main-menu .mitem-orig {
@@ -404,32 +404,8 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
      -webkit-box-sizing: border-box;
    }
 
-	  /* Rotates logo on mobile */
-   #main-menu #FIThome {
-		display: initial;
-		width: 39px;
- 		height: 48px;
-	 }
-
-	 #main-menu #FIThome img {
-		transform-origin: top left;
-		transform: rotate(-90deg) translateX(-100%);
-	 }
-
-	 #main-menu #mhome {
-		 flex-basis: 20%;
-	 }
-
-	 #main-menu .menu-break {
-		display: initial;
-		flex-basis: 100%;
-		height: 0;
-	 }
-
-	 #main-menu .logo-spacer {
-		 display: initial;
-		 width: 39px;
-		 height: 48px;
+	 #main-menu #FIThome {
+		border-bottom: 1px solid #fff;
 	 }
 }
 
