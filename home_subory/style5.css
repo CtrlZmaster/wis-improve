@@ -365,7 +365,6 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
 @media (max-width: 575px) {
    .hide-m { display: none; }
    #clock { white-space: pre }
-   IMG.FITlogo { order: -10; }
    a.sbtn,a.sbtnr,a.sbtng,a.sbtno {
 	width: 96%;
 	padding: 14px 2% 16px 2%;
@@ -378,39 +377,60 @@ table.res > thead > tr > th, table.res > tbody > tr > th { color: #333333; }
 
    /* New menu */
    #main-menu {
-	  justify-content: space-between;
+		display: flex;
 	  flex-wrap: wrap;
    }
 
    #main-menu .mitem {
-	  display: none;
-	  width: 100%;
-	  border: none;
-	  padding-bottom: 10px;
+		display: initial;
+		height: 48px;
+		flex-basis: 20%;
+		flex-grow: 1;
+		padding-top: 15px;
+		box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+		border: none;
    }
 
-   #main-menu .mitem-s {
+   #main-menu .mitem-s, #main-menu .mitem-orig {
+		 width: auto;
+		 flex-basis: 10%;
+		 flex-grow: .7;
+		 padding-left: 0;
+		 padding-right: 0;
+		 box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     -webkit-box-sizing: border-box;
    }
 
-   #main-menu -mitem-orig {
-	   width: auto;
-   }
+	  /* Rotates logo on mobile */
+   #main-menu #FIThome {
+		display: initial;
+		width: 39px;
+ 		height: 48px;
+	 }
 
-   #main-menu a:first-child { order: -11; } /* Forces header logo to the left */
+	 #main-menu #FIThome img {
+		transform-origin: top left;
+		transform: rotate(-90deg) translateX(-100%);
+	 }
 
-   #main-menu .filler { order: -10; } /* Forces items to group next to the hamburger */
+	 #main-menu #mhome {
+		 flex-basis: 20%;
+	 }
 
-   /* Using order -9 to -1 will move menu items to the left from the hamburger button */
-   /* Default order is 0, so hamburger and other items have zero - they follow the HTML order */
-   #main-menu #mlang {
-	  width: auto;
-	  display: initial;
-	  padding-left: 8px;
-	  padding-right: 8px;
-	  order: -1;
-   }
+	 #main-menu .menu-break {
+		display: initial;
+		flex-basis: 100%;
+		height: 0;
+	 }
 
-   #main-menu .open { display: block; }
+	 #main-menu .logo-spacer {
+		 display: initial;
+		 width: 39px;
+		 height: 48px;
+	 }
 }
 
 /* Tablet */
